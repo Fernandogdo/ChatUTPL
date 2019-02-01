@@ -1,0 +1,67 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Configuraciones Previas</span>
+    <span class="expaciadorToolbar"></span>
+    <app-menu-dashboard-chats-docente></app-menu-dashboard-chats-docente>
+  </mat-toolbar-row>
+</mat-toolbar> <br/>
+
+
+<div class="container">
+  
+<h4>Glosario</h4>
+  <div class = "row">
+    <mat-card>
+      <form class="example-form" #glosarioForm="ngForm" (ngSubmit)="addGlosario(glosarioForm)">
+        <input type="hidden" name ="_id" #_id = "ngModel" [(ngModel)] = "glosarioService.selectedGlosario._id">
+        <div class="form-group">
+          <input type="text" class="form-control" name="title" #title = "ngModel"
+          [(ngModel)] ="glosarioService.selectedGlosario.title" placeholder="Ingrese el término">
+        </div>
+        <div class="form-group"> <input type="text" class="form-control" name="description" #description="ngModel"
+          [(ngModel)] = "glosarioService.selectedGlosario.description" placeholder="Ingrese la descripción">
+        </div>
+        <mat-card-actions>
+          <div class="input-field col s12">
+            <div class="example-button-row">
+              <button mat-raised-button color="primary" style="margin-left: 10px;" (click) = "resetForm(glosarioForm)">Limpiar</button>
+              <button mat-raised-button color="primary" style="margin-left:65px;">Guardar</button>
+            </div>
+          </div>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+
+      <div class = "col s6">
+        <table>
+          <thead>
+            <th>Titulo </th>
+            <th>Descripción</th>
+            <th>Operaciones</th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let glosario of glosarioService.glosarios">
+              <td>{{ glosario.title }} </td>
+              <td>{{ glosario.description }} </td>
+              <td>
+              <a (click)="editGlosario(glosario)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteGlosario(glosario._id, glosarioForm)">
+                <i class="material-icons">delete</i>
+              </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+<app-uploads> </app-uploads>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">

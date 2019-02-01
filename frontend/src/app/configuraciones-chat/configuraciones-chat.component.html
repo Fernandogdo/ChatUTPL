@@ -1,0 +1,11 @@
+
+<h1 mat-dialog-title>Configuraciones del chat</h1>
+
+<mat-form-field class="col-sm-12">
+  <input matInput placeholder="Nombre del chat">
+</mat-form-field>
+
+<div mat-dialog-actions align="center">
+  <!-- <button mat-button (click)="close()">Aceptar</button> -->
+  <button mat-button [routerLink]="['/confChat']" (click)="close()" >Aceptar</button>
+</div>

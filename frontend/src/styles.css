@@ -1,0 +1,30 @@
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    position: relative;
+}
+
+.bodyRegistro{
+    height: 100%;
+    background-image: url('../imagenes/chatLogin.jpg');
+    background-size: cover;
+    position: absolute;
+}
+
+.transparencia-blanco{
+    background: #fbfbfbfb;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.formulario-registro{
+    position: absolute;
+    z-index: 100;
+    background: transparent;
+    vertical-align: bottom;
+}
